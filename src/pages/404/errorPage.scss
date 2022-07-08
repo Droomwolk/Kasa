@@ -1,0 +1,26 @@
+.error {
+    margin-left: 3em;
+    margin-right: 3em;
+    color: $primary-color;
+    &__main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 3em;
+        // background-color: red;
+        &-title {
+            font-weight: 700;
+            font-size: 18em;
+            color: $primary-color
+        }
+        &-texte {
+            font-weight: 500;
+            font-size: 3em;
+            color: $primary-color
+        }
+        &-footer {
+            margin-top: 10em;
+        }
+    }
+}

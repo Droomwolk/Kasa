@@ -1,0 +1,27 @@
+.accordion {
+    margin-top: 3em;
+    width: 80%;
+    
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $primary-color;
+        padding: 1em;
+        border-radius: 0.5em;
+        &-title {
+            color: white;
+            font-size: 1.2em;
+        }
+        &-button {
+            color: white;
+            font-size: 1.5em;
+        }
+    }
+    &__content {
+        background-color: $cardBackground;
+        color: $primary-color;
+        padding: 2em 1em;
+        font-size: larger;
+    }
+}

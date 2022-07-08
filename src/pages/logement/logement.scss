@@ -1,0 +1,77 @@
+.logement {
+    margin-left: 3em;
+    margin-right: 3em;
+    &__figure {
+        width: 100%;
+        height: 23em;
+        // background-color: aqua;
+        &-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            // overflow: hidden;
+            border-radius: 1em 1em;
+            // margin-top: 2em;
+        }
+    }
+    &__main {
+        margin-top: 3em;
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &-adress {
+                color: $primary-color;
+                &-name {
+                    font-size: xx-large;
+                    margin-bottom: 0.2em;
+                }
+            }
+            &-profil {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 10em;
+                &-name {
+                    color: $primary-color
+                }
+            }
+        }
+        &-list {
+            margin-top: 1.5em;
+            &-adress {
+                display: flex;
+                justify-content: space-between;
+                // background-color: crimson;
+                width: 28em;
+                &-style {
+                    border: 0.1em;
+                    border-color: $primary-color;
+                    border-style: solid;
+                    border-radius: 1em;
+                    padding: 0.1em 3em;
+                    color: white;
+                    background-color: $primary-color;
+                }
+                &-lieu {
+                    border: 0.1em;
+                    border-color: $primary-color;
+                    border-style: solid;
+                    border-radius: 1em;
+                    padding: 0.1em 3em;
+                    color: white;
+                    background-color: $primary-color;
+                }
+                &-cedex {
+                    border: 0.1em;
+                    border-color: $primary-color;
+                    border-style: solid;
+                    border-radius: 1em;
+                    padding: 0.1em 3em;
+                    color: white;
+                    background-color: $primary-color;
+                }
+            }
+        }
+    }
+}

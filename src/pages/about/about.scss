@@ -1,0 +1,11 @@
+.about {
+    margin-left: 3em;
+    margin-right: 3em;
+    height: 100vh;
+    &__main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
