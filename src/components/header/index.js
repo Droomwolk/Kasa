@@ -1,28 +1,39 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../../styles/main.scss";
 
 import Logo from "../../assets/img/logo.png";
 
 const Header = (props) => {
-  // let activeStyle = {
-  //   textDecoration: "underline",
-  // };
-
   return (
     <header className="header">
       <img src={Logo} alt="logo" className="header__image" />
       <nav>
         <ul className="header__nav">
           <li>
-            <NavLink to="/home">Accueil</NavLink>
+            <NavLink
+              to="/home"
+              style={({ isActive }) => ({
+                color: isActive ? "#FF6060" : "#FF6060",
+                textDecorationLine: isActive ? "underline" : "none",
+              })}
+            >
+              Accueil
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/about">A Propos</NavLink>
+            <NavLink
+              to="/about"
+              style={({ isActive }) => ({
+                color: isActive ? "#FF6060" : "#FF6060",
+                textDecorationLine: isActive ? "underline" : "none",
+              })}
+            >
+              A Propos
+            </NavLink>
           </li>
         </ul>
       </nav>
-      <Outlet />
     </header>
   );
 };

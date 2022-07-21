@@ -1,26 +1,38 @@
 .error {
-    margin-left: 3em;
-    margin-right: 3em;
-    color: $primary-color;
+    @include marginGlobal(3em, 3em);
+    @include fontMensuration($primary-font, 500, null, $primary-color);
     &__main {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         margin-top: 3em;
-        // background-color: red;
         &-title {
-            font-weight: 700;
-            font-size: 18em;
-            color: $primary-color
+            @include fontMensuration(null,700, 18em, null)
         }
         &-texte {
-            font-weight: 500;
-            font-size: 3em;
-            color: $primary-color
+            font-size: 2.25em;
         }
         &-footer {
             margin-top: 10em;
+            font-size: 1.125em;
+            text-decoration-line: underline;
+            color: $primary-color
         }
     }
+    @media all and (min-width: 320px) and (max-width: 425px) {
+        @include marginGlobal(1em, 1em);
+        &__main {
+            &-title {
+                font-size: 6em;
+            }
+            &-texte {
+                margin-top: 1em;
+                font-size: 1.125em;
+                text-align: center;
+            }
+        }
+        
+    }
+
 }

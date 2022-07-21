@@ -1,6 +1,9 @@
-// import "./App.scss";
+import React from "react";
+
+import data from "../data/data";
 import { Routes, Route } from "react-router-dom";
 import "../styles/main.scss";
+
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Homepage from "../pages/homepage";
@@ -13,14 +16,10 @@ function App() {
     <div className="App">
       <Header />
       <Routes path="/" element={<App />}>
-        <Route path="home" element={<Homepage />} />
+        <Route path="home" element={<Homepage studio={data} />} />
         <Route path="about" element={<About />} />
-        <Route path="logement" element={<Logement />} />
+        <Route path="logement/:id" element={<Logement studio={data} />} />
         <Route path="*" element={<ErrorPage />} />
-        {/* <Homepage />
-      <Logement />
-      <ErrorPage />
-      <About /> */}
       </Routes>
       <Footer />
     </div>

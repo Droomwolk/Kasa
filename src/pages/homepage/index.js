@@ -1,38 +1,19 @@
-import React, { useEffect, useState, useParams } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 import Banniere from "../../components/banniere";
 
 import "../../styles/main.scss";
 
-const Homepage = () => {
-  const [studio, setStudio] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // let { userId } = useParams();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get("data.json");
-      console.log(response.data);
-      setStudio(response.data);
-      setIsLoading(false);
-    };
-    fetchData();
-  }, []);
-
-  return isLoading ? (
-    <p>En cours de chargement...</p>
-  ) : (
+const Homepage = ({ studio }) => {
+  return (
     <div className="homepage">
       <Banniere />
       <main className="homepage__main">
-        {studio.map((data, index) => {
-          console.log("DATA", data);
+        {studio.data.map((data, index) => {
           return (
-            <div className="homepage__main-container">
-              <Link to="/logement">
+            <div className="homepage__main-container" key={data.id}>
+              <Link to={`/logement/${data.id}`}>
                 <img
                   src={data.cover}
                   alt="oiseaux"

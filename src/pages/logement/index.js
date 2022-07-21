@@ -1,40 +1,101 @@
 import React from "react";
-import Glace from "../../assets/img/glace.jpg";
-import Profil from "../../assets/img/host.png";
+import { useParams } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+// import { Carousel } from "react-responsive-carousel";
+
+import Carousel from "../../components/carousel/carousel";
+
+import Accordion from "../../components/accordion";
 
 import "../../styles/main.scss";
 
-const Logement = () => {
+const Logement = ({ studio }) => {
+  const { id } = useParams();
+  const logement = studio.data.find((el) => el.id === id);
+
   return (
     <div className="logement">
-      <figure className="logement__figure">
-        <img src={Glace} alt="paysage" className="logement__figure-image" />
-      </figure>
+      <Carousel slides={logement.pictures} />
       <main className="logement__main">
-        <section className="logement__main-header">
-          <div className="logement__main-header-adress">
-            <h2 className="logement__main-header-adress-name">
-              Cozy Loft on the Canal Saint-Martin
-            </h2>
-            <p>Paris, Île-de-France</p>
-          </div>
-          <div className="logement__main-header-profil">
-            <div className="logement__main-header-profil-name">
-              <p className="logement__main-header-profil-name-nom">Alexandre</p>
-              <p className="logement__main-header-profil-name-lastname">
-                Dumas
+        <section className="logement__main-container">
+          <section className="logement__main-header">
+            <div className="logement__main-header-adress">
+              <h2 className="logement__main-header-adress-name">
+                {logement.title}
+              </h2>
+              <p className="logement__main-header-adress-lastName">
+                {logement.location}
               </p>
             </div>
-            <img src={Profil} alt="profil" />
-          </div>
+            <div className="logement__main-header-list">
+              <ul className="logement__main-header-list-adress">
+                {logement.tags.map((el) => {
+                  return (
+                    <li
+                      key={el}
+                      className="logement__main-header-list-adress-style"
+                    >
+                      {el}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </section>
+          <section className="logement__main-profil">
+            <div className="logement__main-profil-person">
+              <div className="logement__main-profil-person-name">
+                <p className="logement__main-profil-person-name-nom">
+                  {logement.host.name}
+                </p>
+              </div>
+              <img
+                src={logement.host.picture}
+                alt="profil"
+                className="logement__main-profil-person-name-photo"
+              />
+            </div>
+            <div className="logement__main-profil-rating">
+              <ul className="logement__main-profil-rating-list">
+                <li style={logement.rating >= 1 ? { color: "yellow" } : null}>
+                  <FaStar />
+                </li>
+                <li style={logement.rating >= 2 ? { color: "yellow" } : null}>
+                  <FaStar />
+                </li>
+                <li style={logement.rating >= 3 ? { color: "yellow" } : null}>
+                  <FaStar />
+                </li>
+                <li style={logement.rating >= 4 ? { color: "yellow" } : null}>
+                  <FaStar />
+                </li>
+                <li style={logement.rating >= 5 ? { color: "yellow" } : null}>
+                  <FaStar />
+                </li>
+              </ul>
+            </div>
+          </section>
         </section>
-        <section className="logement__main-list">
-          <ul className="logement__main-list-adress">
-            <li className="logement__main-list-adress-style">Cozy</li>
-            <li className="logement__main-list-adress-lieu">Canal</li>
-            <li className="logement__main-list-adress-cedex">Paris 10</li>
-          </ul>
-        </section>
+        <div className="logement__main-accordion">
+          <Accordion
+            title="Description"
+            className="logement__main-accordion-first"
+            style={{
+              marginRight: "1em",
+              flex: 1,
+            }}
+            content={logement.description}
+          />
+          <Accordion
+            title="Équipement"
+            className="logement__main-accordion-two"
+            style={{
+              flex: 1,
+            }}
+            list={logement.equipments}
+          />
+        </div>
       </main>
     </div>
   );

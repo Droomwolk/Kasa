@@ -1,0 +1,15 @@
+@mixin accordionSize($width) {
+    width: $width;
+}
+
+@mixin fontMensuration($family, $weight, $size, $color) {
+    font-family: $family;
+    font-weight: $weight;
+    font-size: $size;
+    color: $color;
+}
+
+@mixin marginGlobal($left, $right) {
+    margin-left: $left;
+    margin-right: $right;
+}

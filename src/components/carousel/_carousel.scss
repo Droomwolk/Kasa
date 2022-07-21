@@ -1,0 +1,39 @@
+.slider {
+  &__left-arrow {
+    position: absolute;
+    top: 40%;
+    left: 1em;
+    font-size: 4rem;
+    color: white;
+  }
+  &__right-arrow {
+    position: absolute;
+    top: 40%;
+    right: 1em;
+    font-size: 4rem;
+    color: white;
+  }
+  &__figure {
+    box-sizing: content-box;
+    &-image {
+      width: 100%;
+      height: 25em;
+      object-fit: cover;
+      border-radius: 1em 1em;
+    }
+  }
+  @media all and (min-width: 320px) and (max-width: 425px) {
+    &__left-arrow {
+      top: 50%;
+      left: 0.5em;
+      font-size: 2rem;
+      // color: red;
+    }
+    &__right-arrow {
+      top: 50%;
+      right: 0.5em;
+      font-size: 2rem;
+      // color: red;
+    }
+  }
+}

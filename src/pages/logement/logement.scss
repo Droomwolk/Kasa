@@ -1,76 +1,137 @@
 .logement {
-    margin-left: 3em;
-    margin-right: 3em;
-    &__figure {
-        width: 100%;
-        height: 23em;
-        // background-color: aqua;
-        &-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            // overflow: hidden;
-            border-radius: 1em 1em;
-            // margin-top: 2em;
-        }
-    }
+    @include marginGlobal(3em, 3em);
+    @include fontMensuration($primary-font, 500, 1.125em, null);
     &__main {
-        margin-top: 3em;
-        &-header {
+        margin-top: 2em;
+        &-container {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+        }
+        &-header {
+            display: flex;
+            flex-direction: column;
             &-adress {
                 color: $primary-color;
                 &-name {
-                    font-size: xx-large;
+                    font-size: 2.25em;
                     margin-bottom: 0.2em;
                 }
+                &-lastName {
+                    font-size: 1.125em;
+                }
             }
-            &-profil {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 10em;
-                &-name {
-                    color: $primary-color
+            &-list {
+                margin-top: 1.5em;
+                font-size: 0.875em;
+                &-adress {
+                    display: flex;
+                    flex: 1;
+                    &-style {
+                        border: 0.1em;
+                        border-color: $primary-color;
+                        border-style: solid;
+                        border-radius: 0.6em;
+                        padding: 0.1em 1.8em;
+                        color: white;
+                        background-color: $primary-color;
+                        margin-right: 0.5em;
+                    }
                 }
             }
         }
-        &-list {
-            margin-top: 1.5em;
-            &-adress {
+        &-profil {
+            &-person {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 8em;
+                &-name {
+                    color: $primary-color;
+                    &-photo {
+                        border-radius: 50%;
+                        width: 4em;
+                    }
+                }
+            }
+            &-rating {
+                &-list {
+                    display: flex;
+                    font-size: 1.5em;
+                    margin-top: 0.5em;
+                }
+            }
+        }
+        &-accordion {
+            display: flex;
+            // font-size: 1.125em;
+        }
+    }
+    @media all and (min-width: 320px) and (max-width: 425px) {
+        @include marginGlobal(1em, 1em);
+        &__main {
+            margin-top: 1em;
+            &-container {
+                flex-direction: column;
+            }
+            &-header {
+                &-adress {
+                    &-name {
+                       font-size: 1.125em; 
+                    }
+                    &-lastName {
+                        font-size: 0.875em;
+                    }
+                }
+                &-list {
+                    margin-top: 1em;
+                    display: flex;
+                    &-adress {
+                        display: flex;
+                        flex-wrap: wrap;
+                        flex: 1;
+                        &-style {
+                            border: 0.1em;
+                            border-color: $primary-color;
+                            border-style: solid;
+                            border-radius: 0.3em;
+                            padding: 0.1em 1em;
+                            color: white;
+                            background-color: $primary-color;
+                            margin-bottom: 0.5em;
+                            font-size: 0.625em;
+                        }
+                    }
+                }
+            }
+            &-profil {
+                margin-top: 0.5em;
                 display: flex;
+                flex-direction: row-reverse;
                 justify-content: space-between;
-                // background-color: crimson;
-                width: 28em;
-                &-style {
-                    border: 0.1em;
-                    border-color: $primary-color;
-                    border-style: solid;
-                    border-radius: 1em;
-                    padding: 0.1em 3em;
-                    color: white;
-                    background-color: $primary-color;
+                &-person {
+                justify-content: space-between;
+                align-items: center;
+                width: 6em;
+                    &-name {
+                        color: $primary-color;
+                        font-size: 0.75em;
+                        &-photo {
+                            width: 40%;
+                        }
+                    }
                 }
-                &-lieu {
-                    border: 0.1em;
-                    border-color: $primary-color;
-                    border-style: solid;
-                    border-radius: 1em;
-                    padding: 0.1em 3em;
-                    color: white;
-                    background-color: $primary-color;
+                &-rating {
+                    &-list {
+                        font-size: 1em;
+                    }
                 }
-                &-cedex {
-                    border: 0.1em;
-                    border-color: $primary-color;
-                    border-style: solid;
-                    border-radius: 1em;
-                    padding: 0.1em 3em;
-                    color: white;
-                    background-color: $primary-color;
-                }
+            }
+            &-accordion {
+                flex-direction: column;
+                margin-top: 1.2em;
+                :nth-child(1) {
+                    margin-top: 0em;
+                } 
             }
         }
     }
